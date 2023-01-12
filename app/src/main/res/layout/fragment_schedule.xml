@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/textViewTypeService"
-        android:layout_width="170sp"
-        android:layout_height="41sp"
+        android:layout_width="165dp"
+        android:layout_height="68dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Tipo de serviço"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

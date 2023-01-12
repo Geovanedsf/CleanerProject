@@ -3,6 +3,7 @@ package com.geovane.appfulldacorrecao.view
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.geovane.appfulldacorrecao.R
 import com.geovane.appfulldacorrecao.model.Schedule
@@ -17,6 +18,7 @@ class SuccessFragment : Fragment(R.layout.fragment_success) {
         super.onViewCreated(view, savedInstanceState)
 
         setDescSchedule()
+        setButtonClicked()
     }
 
     fun setDescSchedule(){
@@ -34,4 +36,13 @@ class SuccessFragment : Fragment(R.layout.fragment_success) {
                 "${schedule.address.state} / " +
                 "${schedule.address.country}"
     }
+    fun setButtonClicked() {
+        buttonOk.setOnClickListener {
+            var action = SuccessFragmentDirections.actionSuccessFragmentToListServiceFragment(
+                args.schedule
+            )
+            findNavController().navigate(action)
+        }
+    }
+
 }

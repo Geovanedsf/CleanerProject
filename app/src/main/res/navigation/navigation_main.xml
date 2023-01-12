@@ -36,7 +36,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.geovane.appfulldacorrecao.view.HomeFragment"
-        android:label="fragment_homek"
+        android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_scheduleFragment"
@@ -60,6 +60,18 @@
         android:name="com.geovane.appfulldacorrecao.view.SuccessFragment"
         android:label="fragment_success"
         tools:layout="@layout/fragment_success" >
+        <argument
+            android:name="schedule"
+            app:argType="com.geovane.appfulldacorrecao.model.Schedule" />
+        <action
+            android:id="@+id/action_successFragment_to_listServiceFragment"
+            app:destination="@id/listServiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listServiceFragment"
+        android:name="com.geovane.appfulldacorrecao.view.ListServiceFragment"
+        android:label="fragment_list_service"
+        tools:layout="@layout/fragment_list_service" >
         <argument
             android:name="schedule"
             app:argType="com.geovane.appfulldacorrecao.model.Schedule" />

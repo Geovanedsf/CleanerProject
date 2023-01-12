@@ -1,17 +1,15 @@
-package com.geovane.appfulldacorrecao.view
+package com.bigrocket.limpezaapp.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.geovane.appfulldacorrecao.R
 import com.geovane.appfulldacorrecao.model.Address
 import com.geovane.appfulldacorrecao.model.Schedule
-import kotlinx.android.synthetic.main.fragment_login.*
+import com.geovane.appfulldacorrecao.view.ScheduleFragmentArgs
+import com.geovane.appfulldacorrecao.view.ScheduleFragmentDirections
 import kotlinx.android.synthetic.main.fragment_schedule.*
 
 class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
@@ -22,30 +20,29 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         super.onViewCreated(view, savedInstanceState)
 
         setTypeServiceWith(args.id)
-        setButtonClicked()
     }
 
     fun setTypeServiceWith(id: Int) {
         when (id) {
-            1 -> textViewTypeService.text = "Limpeza leve"
-            2 -> textViewTypeService.text = "Limpeza moderada"
-            3 -> textViewTypeService.text = "Limpeza pesada"
+            1 -> textViewTypeService.text = "Limpeza Leve"
+            2 -> textViewTypeService.text = "Limpeza Média"
+            3 -> textViewTypeService.text = "Limpeza Pesada"
         }
-
+        setButtonClicked()
     }
 
     fun setButtonClicked() {
         buttonSchedule.setOnClickListener {
             val schedule = Schedule(
                 textViewTypeService.text.toString(),
-                editTextAddressSchedule.text.toString(),
+                editTextDateSchedule.text.toString(),
                 Address(
-                    editTextAddressSchedule.toString(),
-                    editTextDistrictSchedule.toString(),
-                    editTextNumberSchedule.toString(),
-                    editTextCitySchedule.toString(),
-                    editTextStateSchedule.toString(),
-                    editTextCountrySchedule.toString()
+                    editTextAddressSchedule.text.toString(),
+                    editTextNumberSchedule.text.toString(),
+                    editTextDistrictSchedule.text.toString(),
+                    editTextCitySchedule.text.toString(),
+                    editTextStateSchedule.text.toString(),
+                    editTextCountrySchedule.text.toString()
                 )
             )
             var action = ScheduleFragmentDirections.actionScheduleFragmentToSuccessFragment(
